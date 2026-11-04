@@ -1,0 +1,1083 @@
+.pending-page {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #172033;
+}
+
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.pending-navbar {
+  height: 72px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 50;
+}
+
+
+.pending-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+.pending-back-button {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #e1e5eb;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.pending-back-button:hover {
+  background: #f1f4f8;
+}
+
+
+.pending-page-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.pending-page-subtitle {
+  margin-top: 2px;
+
+  font-size: 12px;
+
+  color: #737b8c;
+}
+
+
+.pending-home-button {
+  border: none;
+
+  background: #172033;
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.pending-home-button:hover {
+  opacity: 0.88;
+}
+
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+.pending-container {
+  max-width: 1080px;
+
+  margin: 0 auto;
+
+  padding: 42px 24px 70px;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.pending-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 30px;
+
+  margin-bottom: 30px;
+}
+
+
+.pending-label {
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #fff4d6;
+
+  color: #956600;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+}
+
+
+.pending-header h1 {
+  margin: 12px 0 7px;
+
+  font-size: 30px;
+
+  font-weight: 750;
+}
+
+
+.pending-header p {
+  margin: 0;
+
+  max-width: 650px;
+
+  color: #697386;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+.pending-counter {
+  min-width: 88px;
+
+  padding: 13px 18px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 13px;
+
+  text-align: center;
+}
+
+
+.pending-counter strong {
+  display: block;
+
+  font-size: 25px;
+
+  font-weight: 750;
+}
+
+
+.pending-counter span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #737b8c;
+
+  font-size: 11px;
+}
+
+
+/* ============================================================
+   APPLICATION LIST
+============================================================ */
+
+.pending-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* ============================================================
+   APPLICATION CARD
+============================================================ */
+
+.pending-card {
+  background: #ffffff;
+
+  border: 1px solid #e3e7ed;
+
+  border-radius: 18px;
+
+  padding: 26px;
+
+  box-shadow:
+    0 5px 18px rgba(20, 30, 50, 0.05);
+}
+
+
+/* ============================================================
+   CARD HEADER
+============================================================ */
+
+.pending-card-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+
+.pending-card-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  font-weight: 700;
+}
+
+
+.pending-company {
+  margin-top: 6px;
+
+  font-size: 14px;
+
+  color: #697386;
+}
+
+
+.pending-status {
+  padding: 7px 13px;
+
+  background: #fff4d6;
+
+  color: #956600;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   APPLICATION INFO
+============================================================ */
+
+.pending-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+
+  padding: 21px 0;
+}
+
+
+.pending-info-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+
+.pending-info-item span {
+  font-size: 10px;
+
+  color: #8992a3;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+.pending-info-item strong {
+  font-size: 12px;
+
+  color: #30394a;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+
+.email-section,
+.resume-section {
+  margin-top: 4px;
+
+  border: 1px solid #e2e6ec;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+
+.resume-section {
+  margin-top: 16px;
+}
+
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 14px 16px;
+
+  background: #f7f9fb;
+
+  border-bottom: 1px solid #e2e6ec;
+}
+
+
+.section-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e4ea;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+}
+
+
+.section-heading h3 {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+.section-heading p {
+  margin: 3px 0 0;
+
+  color: #7b8494;
+
+  font-size: 11px;
+}
+
+
+/* ============================================================
+   EMAIL
+============================================================ */
+
+.email-content {
+  padding: 16px;
+}
+
+
+.email-field + .email-field {
+  margin-top: 16px;
+}
+
+
+.email-field > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #8992a3;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+.email-subject {
+  padding: 11px 13px;
+
+  background: #f9fafb;
+
+  border: 1px solid #e5e8ed;
+
+  border-radius: 8px;
+
+  color: #30394a;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.email-body {
+  padding: 13px;
+
+  background: #f9fafb;
+
+  border: 1px solid #e5e8ed;
+
+  border-radius: 8px;
+
+  color: #4c5668;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+
+  white-space: pre-wrap;
+
+  max-height: 280px;
+
+  overflow-y: auto;
+}
+
+
+/* ============================================================
+   RESUME
+============================================================ */
+
+.resume-file {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px 16px;
+}
+
+
+.resume-file-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #eef1f5;
+
+  border-radius: 9px;
+
+  color: #4b5565;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.resume-file-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+
+.resume-file-info strong {
+  font-size: 13px;
+
+  color: #30394a;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.resume-file-info span {
+  font-size: 11px;
+
+  color: #8992a3;
+}
+
+
+/* ============================================================
+   ACTIONS
+============================================================ */
+
+.pending-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+
+.reject-button,
+.approve-button {
+  padding: 11px 20px;
+
+  border-radius: 9px;
+
+  border: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.reject-button {
+  background: #f0f2f5;
+
+  color: #4d5666;
+}
+
+
+.reject-button:hover {
+  background: #e5e8ed;
+}
+
+
+.approve-button {
+  background: #172033;
+
+  color: #ffffff;
+}
+
+
+.approve-button:hover {
+  opacity: 0.88;
+}
+
+
+/* ============================================================
+   EMPTY / ERROR / LOADING
+============================================================ */
+
+.pending-state {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 70px 25px;
+
+  text-align: center;
+}
+
+
+.pending-state h3 {
+  margin: 15px 0 7px;
+
+  font-size: 18px;
+}
+
+
+.pending-state p {
+  max-width: 520px;
+
+  margin: 0 auto;
+
+  color: #737b8c;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+.pending-state-icon,
+.pending-success-icon {
+  font-size: 35px;
+}
+
+
+.pending-success-icon {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #e7f7ed;
+
+  color: #16713b;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+
+  font-weight: 700;
+}
+
+
+.pending-spinner {
+  width: 34px;
+  height: 34px;
+
+  margin: 0 auto;
+
+  border: 3px solid #e5e7eb;
+
+  border-top-color: #172033;
+
+  border-radius: 50%;
+
+  animation: pendingSpin 0.8s linear infinite;
+}
+
+
+@keyframes pendingSpin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+.pending-error {
+  border-color: #f0caca;
+}
+
+
+.pending-retry-button,
+.pending-browse-button {
+  margin-top: 20px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #172033;
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 800px) {
+
+  .pending-navbar {
+    padding: 0 18px;
+  }
+
+
+  .pending-container {
+    padding: 30px 16px 50px;
+  }
+
+
+  .pending-header {
+    flex-direction: column;
+  }
+
+
+  .pending-card-header {
+    flex-direction: column;
+  }
+
+
+  .pending-info-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .pending-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .pending-actions {
+    flex-direction: column;
+  }
+
+
+  .reject-button,
+  .approve-button {
+    width: 100%;
+  }
+
+}
+
+.resume-file {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.resume-file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.resume-file-info strong {
+    display: block;
+    font-size: 15px;
+    color: #1f2937;
+    word-break: break-word;
+}
+
+.resume-file-info span {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.view-resume-button {
+    border: none;
+    background: #111827;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.view-resume-button:hover {
+    background: #000000;
+    transform: translateY(-1px);
+}
+
+.view-resume-button:active {
+    transform: translateY(0);
+}
+
+/* Pending application questions */
+.application-question-card {
+  margin: 14px;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fff, #f8faff);
+  box-shadow: 0 5px 16px rgba(30, 48, 80, .045);
+}
+
+.application-question-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.application-question-kicker {
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.application-question-required {
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #a33b25;
+  background: #fff1ed;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.application-question-title {
+  margin-bottom: 12px;
+  color: #1c2940;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.application-question-help {
+  margin: 0 0 14px;
+  padding: 11px 12px;
+  border-left: 3px solid #d99a2b;
+  border-radius: 7px;
+  color: #694f21;
+  background: #fff9e9;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.application-question-field-id {
+  display: block;
+  margin-top: 5px;
+  color: #7a6a4a;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.application-question-options {
+  margin: 0 0 14px;
+}
+
+.application-question-options strong,
+.application-question-answer-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #536176;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.application-question-options ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.application-question-options li {
+  padding: 5px 9px;
+  border: 1px solid #e0e7f1;
+  border-radius: 999px;
+  color: #42516a;
+  background: #f4f7fc;
+  font-size: 11px;
+}
+
+.application-question-input {
+  display: block;
+  width: 100%;
+  min-height: 43px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #d5deea;
+  border-radius: 9px;
+  outline: none;
+  color: #24324a;
+  background: #fff;
+  font: inherit;
+  font-size: 13px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.application-question-input:focus {
+  border-color: #625bff;
+  box-shadow: 0 0 0 3px rgba(98, 91, 255, .12);
+}
+
+.application-question-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 11px;
+}
+
+.application-question-save {
+  min-height: 38px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #172033;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.application-question-save:hover {
+  transform: translateY(-1px);
+  background: #273859;
+}
+
+@media (max-width: 700px) {
+
+    .resume-file {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .resume-file-info {
+        flex: 1 1 calc(100% - 70px);
+    }
+
+    .view-resume-button {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+.gmail-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 0 0 26px;
+  padding: 20px 22px;
+  border: 1px solid #e0e6ef;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #ffffff, #f7f9ff);
+  box-shadow: 0 8px 24px rgba(25, 40, 70, 0.05);
+}
+
+.gmail-connected {
+  border-color: #ccebd9;
+  background: linear-gradient(120deg, #f7fff9, #ffffff);
+}
+
+.gmail-status-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.gmail-status-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  color: #3563d8;
+  background: #eaf0ff;
+  font-size: 19px;
+}
+
+.gmail-connected .gmail-status-icon {
+  color: #17834b;
+  background: #e5f7ed;
+}
+
+.gmail-status-left strong {
+  display: block;
+  margin: 1px 0 5px;
+  color: #1c2738;
+  font-size: 15px;
+}
+
+.gmail-status-left p {
+  margin: 0;
+  color: #687386;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.gmail-status-left .gmail-test-user-note {
+  margin-top: 8px;
+  color: #7b8494;
+  font-size: 11px;
+}
+
+.gmail-test-user-note a {
+  margin-left: 5px;
+  color: #405fc4;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.gmail-test-user-note a:hover {
+  text-decoration: underline;
+}
+
+.connect-gmail-button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid #d9e1f2;
+  border-radius: 11px;
+  background: #fff;
+  color: #263b72;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.connect-gmail-button:hover {
+  background: #f1f5ff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 13px rgba(37, 68, 140, .11);
+}
+
+@media (max-width: 640px) {
+  .gmail-status {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 17px;
+  }
+
+  .connect-gmail-button {
+    width: 100%;
+  }
+}

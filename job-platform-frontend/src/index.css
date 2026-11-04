@@ -1,0 +1,1939 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #1f2340;
+  background: #f7f7fc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   AUTH PAGE
+========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 45px 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(108, 92, 231, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(79, 140, 255, 0.17),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(0, 191, 166, 0.13),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f7ff 0%,
+      #f7f9ff 50%,
+      #f5fffd 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATIVE SHAPES
+========================================================= */
+
+.auth-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  top: -130px;
+  right: -90px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108, 92, 231, 0.22),
+      rgba(79, 140, 255, 0.08)
+    );
+
+  filter: blur(2px);
+}
+
+.auth-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  bottom: -130px;
+  left: -80px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 191, 166, 0.18),
+      rgba(79, 140, 255, 0.06)
+    );
+
+  filter: blur(2px);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.brand-section h1 {
+  font-size: 26px;
+  font-weight: 850;
+
+  letter-spacing: 1.8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c5ce7,
+      #4f8cff,
+      #00bfa6
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.brand-section p {
+  margin-top: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #69718a;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-card {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 22px;
+
+  padding: 38px;
+
+  box-shadow:
+    0 25px 70px rgba(53, 47, 120, 0.10),
+    0 5px 20px rgba(53, 47, 120, 0.05);
+
+  backdrop-filter: blur(15px);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.auth-heading {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+.auth-heading h2 {
+  font-size: 27px;
+  font-weight: 760;
+
+  color: #1f2340;
+}
+
+.auth-heading p {
+  margin-top: 8px;
+
+  font-size: 14px;
+
+  color: #747c92;
+}
+
+
+/* =========================================================
+   GOOGLE BUTTON
+========================================================= */
+
+.google-button {
+  width: 100%;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  border: 1px solid #e1e4ee;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #292d3e;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.google-button:hover:not(:disabled) {
+  background: #fbfbff;
+
+  border-color: #cfc9ff;
+
+  box-shadow:
+    0 7px 18px rgba(108, 92, 231, 0.10);
+
+  transform: translateY(-1px);
+}
+
+.google-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.google-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* Google icon */
+
+.google-icon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 18px;
+  font-weight: 850;
+
+  color: #4285f4;
+
+  background: #f1f5ff;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 26px 0;
+
+  color: #9ba1b1;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  letter-spacing: 0.8px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #e2e5ed,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+  margin-bottom: 19px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #30364a;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+input {
+  width: 100%;
+  height: 49px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dce0ea;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #1f2340;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input::placeholder {
+  color: #a5abba;
+}
+
+input:hover {
+  border-color: #c9cedc;
+}
+
+input:focus {
+  border-color: #6c5ce7;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 92, 231, 0.11);
+}
+
+
+/* =========================================================
+   ERROR INPUT
+========================================================= */
+
+.input-error {
+  border-color: #e25563;
+}
+
+.input-error:focus {
+  border-color: #e25563;
+
+  box-shadow:
+    0 0 0 3px rgba(226, 85, 99, 0.10);
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 72px;
+}
+
+.password-toggle {
+  position: absolute;
+
+  right: 11px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+
+  color: #6c5ce7;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.password-toggle:hover {
+  color: #5142c8;
+}
+
+.password-hint {
+  margin-top: 7px;
+
+  color: #9299aa;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LABEL ROW
+========================================================= */
+
+.label-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-row label {
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.forgot-button {
+  border: none;
+
+  background: transparent;
+
+  color: #6c5ce7;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  margin-bottom: 8px;
+}
+
+.forgot-button:hover {
+  color: #5142c8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-text {
+  margin-top: 6px;
+
+  color: #dc3f50;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+  margin-bottom: 17px;
+
+  padding: 12px 14px;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #effcf7,
+      #f1fbff
+    );
+
+  border: 1px solid #bce9d9;
+
+  color: #19764e;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-button {
+  width: 100%;
+  height: 49px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #6c5ce7,
+      #536dfe 55%,
+      #4f8cff
+    );
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  box-shadow:
+    0 9px 22px rgba(83, 109, 254, 0.22);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  filter: brightness(1.04);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 12px 27px rgba(83, 109, 254, 0.28);
+}
+
+.primary-button:active:not(:disabled) {
+  transform: translateY(0);
+
+  box-shadow:
+    0 6px 15px rgba(83, 109, 254, 0.20);
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER SWITCH
+========================================================= */
+
+.switch-auth {
+  text-align: center;
+
+  margin-top: 24px;
+
+  color: #737b8e;
+
+  font-size: 13px;
+}
+
+.switch-auth a {
+  margin-left: 5px;
+
+  color: #6c5ce7;
+
+  text-decoration: none;
+
+  font-weight: 750;
+
+  transition: color 0.2s ease;
+}
+
+.switch-auth a:hover {
+  color: #4f8cff;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-text {
+  text-align: center;
+
+  margin-top: 20px;
+
+  color: #9299aa;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+.google-login-note {
+  margin-top: 18px;
+  color: #788195;
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 30px 15px;
+  }
+
+  .auth-card {
+    padding: 30px 22px;
+
+    border-radius: 18px;
+  }
+
+  .brand-section h1 {
+    font-size: 22px;
+  }
+
+  .brand-section p {
+    font-size: 13px;
+  }
+
+  .auth-heading h2 {
+    font-size: 23px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .auth-page {
+    padding: 20px 10px;
+  }
+
+  .auth-card {
+    padding: 25px 17px;
+  }
+
+  .auth-heading h2 {
+    font-size: 21px;
+  }
+
+  input,
+  .primary-button,
+  .google-button {
+    height: 47px;
+  }
+}
+
+/* =========================================================
+   PROFILE PAGES
+========================================================= */
+
+.profile-page {
+  min-height: 100vh;
+  padding: 35px 20px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(108, 92, 231, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(0, 191, 166, 0.10),
+      transparent 25%
+    ),
+    #f7f7fc;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.profile-brand {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-brand h1 {
+  font-size: 25px;
+  font-weight: 850;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c5ce7,
+      #4f8cff,
+      #00bfa6
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.profile-brand p {
+  margin-top: 6px;
+  color: #747c92;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  overflow-x: auto;
+  padding: 5px;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+}
+
+.progress-circle {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  border: 2px solid #dce0ea;
+
+  background: #ffffff;
+  color: #a1a7b5;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  cursor: default;
+}
+
+.progress-circle.active {
+  border-color: #6c5ce7;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #4f8cff
+    );
+
+  color: white;
+}
+
+.progress-label {
+  position: absolute;
+  transform: translateY(24px);
+
+  font-size: 9px;
+  color: #9ca2b0;
+
+  white-space: nowrap;
+}
+
+.progress-label.active {
+  color: #6c5ce7;
+  font-weight: 700;
+}
+
+.progress-line {
+  width: 55px;
+  height: 2px;
+
+  margin: 0 5px;
+
+  background: #e0e3eb;
+}
+
+.progress-line.active {
+  background:
+    linear-gradient(
+      90deg,
+      #6c5ce7,
+      #4f8cff
+    );
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #e7eaf1;
+
+  border-radius: 20px;
+
+  padding: 35px;
+
+  box-shadow:
+    0 20px 55px rgba(50, 45, 100, 0.08);
+  animation: profile-card-enter 420ms cubic-bezier(.2,.75,.3,1) both;
+}
+
+.section-block {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.section-block:hover {
+  transform: translateY(-2px);
+  border-color: #d8d5ff;
+  box-shadow: 0 12px 28px rgba(50, 45, 100, 0.07);
+}
+
+@keyframes profile-card-enter {
+  from { opacity: 0; transform: translateY(12px) scale(.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-card { animation: none; }
+  .section-block { transition: none; }
+}
+
+.profile-heading {
+  margin-bottom: 28px;
+}
+
+.profile-heading h2 {
+  color: #1f2340;
+  font-size: 25px;
+}
+
+.profile-heading p {
+  margin-top: 7px;
+  color: #747c92;
+  font-size: 13px;
+}
+
+.profile-content {
+  min-height: 300px;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+textarea,
+select {
+  width: 100%;
+
+  border: 1px solid #dce0ea;
+
+  border-radius: 10px;
+
+  padding: 12px 14px;
+
+  outline: none;
+
+  background: white;
+
+  color: #1f2340;
+
+  font-size: 14px;
+
+  resize: vertical;
+
+  transition: 0.2s ease;
+}
+
+textarea:focus,
+select:focus {
+  border-color: #6c5ce7;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 92, 231, 0.10);
+}
+
+
+/* =========================================================
+   DYNAMIC CARD
+========================================================= */
+
+.dynamic-card {
+  padding: 23px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #e4e7ef;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #fbfbff
+    );
+}
+
+.dynamic-card-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.dynamic-card-header h3 {
+  font-size: 16px;
+  color: #30364a;
+}
+
+
+/* =========================================================
+   REMOVE BUTTON
+========================================================= */
+
+.remove-button {
+  border: none;
+
+  background: #fff0f2;
+
+  color: #dc3f50;
+
+  border-radius: 7px;
+
+  padding: 7px 12px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background: #ffe1e5;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.add-button {
+  border: 1px dashed #aaa2ed;
+
+  background: #f7f5ff;
+
+  color: #6c5ce7;
+
+  border-radius: 9px;
+
+  padding: 10px 15px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.add-button:hover {
+  background: #eeebff;
+
+  border-color: #6c5ce7;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.suggestion-box {
+  margin-top: 5px;
+
+  border: 1px solid #e1e4ec;
+
+  border-radius: 10px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 25px rgba(30, 35, 70, 0.08);
+
+  overflow: hidden;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.suggestion-box button {
+  width: 100%;
+
+  padding: 11px 14px;
+
+  text-align: left;
+
+  border: none;
+
+  background: white;
+
+  color: #30364a;
+
+  cursor: pointer;
+
+  font-size: 13px;
+}
+
+.suggestion-box button:hover {
+  background: #f3f1ff;
+
+  color: #6c5ce7;
+}
+
+.selected-skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.skill-chip {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 10px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0edff,
+      #edf5ff
+    );
+
+  color: #5046ad;
+
+  border: 1px solid #dcd7ff;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.skill-chip button {
+  border: none;
+
+  background: transparent;
+
+  color: #7167c5;
+
+  cursor: pointer;
+
+  font-size: 17px;
+
+  line-height: 1;
+}
+
+.empty-message,
+.optional-note {
+  margin-top: 15px;
+
+  color: #969dac;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.checkbox-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 5px 0 20px;
+
+  color: #626a7d;
+
+  font-size: 13px;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* =========================================================
+   BULLET INPUTS
+========================================================= */
+
+.bullet-input {
+  margin-bottom: 9px;
+
+  padding-left: 28px !important;
+
+  position: relative;
+}
+
+.bullet-input::placeholder {
+  color: #a2a8b5;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section-block {
+  padding: 23px;
+
+  margin-bottom: 20px;
+
+  border-radius: 14px;
+
+  border: 1px solid #e4e7ef;
+
+  background: #ffffff;
+}
+
+.section-block h3 {
+  margin-bottom: 20px;
+
+  font-size: 17px;
+
+  color: #30364a;
+}
+
+.resume-import-card {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+  border-color: #dcd8ff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(103, 88, 232, .13), transparent 38%),
+    linear-gradient(135deg, #fff 0%, #faf9ff 100%);
+}
+
+.resume-import-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, #705be9, #4a83f6);
+}
+
+.resume-import-card h3 {
+  margin-bottom: 7px;
+  font-size: 19px;
+}
+
+.resume-import-card > p {
+  margin: 0 0 18px;
+  color: #68718a;
+  font-size: 13px;
+}
+
+.resume-import-card .form-group {
+  padding: 17px;
+  border: 1px dashed #bdb6f7;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .78);
+}
+
+.resume-file-input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 7px;
+  border: 1px solid #e1e3ef;
+  border-radius: 10px;
+  background: #fff;
+  color: #505873;
+}
+
+.resume-file-input::file-selector-button {
+  margin-right: 12px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(100deg, #6958e8, #477cf5);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resume-import-card .secondary-button {
+  margin-top: 12px;
+}
+
+.resume-import-hint,
+.field-hint {
+  display: block;
+  margin: 10px 0 0;
+  color: #8189a0;
+  font-size: 11px;
+}
+
+.language-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 7px 10px;
+  border: 1px solid #d7ddeb;
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.language-entry:focus-within {
+  border-color: #7464ee;
+  box-shadow: 0 0 0 3px rgba(116, 100, 238, .12);
+}
+
+.language-entry input {
+  flex: 1 1 180px;
+  min-width: 150px;
+  padding: 7px 4px;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.language-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px 5px 11px;
+  border-radius: 999px;
+  color: #5143b9;
+  background: #f0efff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.language-chip button {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #5143b9;
+  background: rgba(105, 88, 232, .12);
+  cursor: pointer;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SAVED ITEMS
+========================================================= */
+
+.saved-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-top: 10px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  background: #f7f7fc;
+
+  border: 1px solid #e7e9f0;
+}
+
+.saved-item strong {
+  color: #30364a;
+  font-size: 13px;
+}
+
+.saved-item span {
+  color: #81899a;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   PROFILE ACTIONS
+========================================================= */
+
+.profile-actions {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 30px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #eceef3;
+}
+
+.secondary-button {
+  height: 46px;
+
+  padding: 0 20px;
+
+  border-radius: 9px;
+
+  border: 1px solid #dce0ea;
+
+  background: white;
+
+  color: #596176;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #f7f7fc;
+
+  border-color: #c9cedc;
+}
+
+
+/* =========================================================
+   PROFILE COMPLETE
+========================================================= */
+
+.complete-card {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 100px auto;
+
+  padding: 45px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 65px rgba(50, 45, 100, 0.10);
+}
+
+.success-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00bfa6,
+      #4f8cff
+    );
+
+  color: white;
+
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.complete-card h1 {
+  color: #1f2340;
+
+  font-size: 27px;
+}
+
+.complete-card > p {
+  margin-top: 8px;
+
+  color: #747c92;
+
+  font-size: 14px;
+}
+
+.profile-summary {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin: 28px 0;
+
+  text-align: left;
+}
+
+.profile-summary div {
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: #f8f8fc;
+
+  border: 1px solid #e9eaf1;
+}
+
+.profile-summary strong {
+  display: block;
+
+  color: #6c5ce7;
+
+  font-size: 11px;
+
+  margin-bottom: 5px;
+}
+
+.profile-summary span {
+  color: #30364a;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   PROFILE MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .profile-page {
+    padding: 25px 12px;
+  }
+
+  .profile-card {
+    padding: 23px 17px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .progress-line {
+    width: 20px;
+  }
+
+  .progress-label {
+    display: none;
+  }
+
+  .profile-heading h2 {
+    font-size: 21px;
+  }
+
+  .dynamic-card,
+  .section-block {
+    padding: 17px;
+  }
+
+  .profile-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   OTHER LINKS
+========================================================= */
+
+.other-links-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.other-links-header label {
+  margin-bottom: 0;
+}
+
+.add-link-button {
+  border: 1px solid #dcd7ff;
+  background: #f5f2ff;
+  color: #6c5ce7;
+
+  border-radius: 8px;
+
+  padding: 7px 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.add-link-button:hover {
+  background: #ebe7ff;
+  border-color: #6c5ce7;
+}
+
+.other-link-row {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.5fr auto;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+
+  align-items: center;
+}
+
+.remove-link-button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #fff0f2;
+
+  color: #dc3f50;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.remove-link-button:hover {
+  background: #ffe1e5;
+}
+
+@media (max-width: 650px) {
+  .other-link-row {
+    grid-template-columns: 1fr;
+  }
+
+  .remove-link-button {
+    width: 100%;
+  }
+}
+
+.error-message {
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
+  font-size: 14px;
+}
+
+/* ============================================================
+   ACCOUNT DETAILS
+============================================================ */
+
+.account-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 40px 24px;
+}
+
+
+.account-card {
+    max-width: 1050px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e2e6ef;
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(20, 30, 60, 0.08);
+}
+
+
+/* HEADER */
+
+.account-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e8ebf2;
+}
+
+
+.account-back-button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #dce1eb;
+    border-radius: 12px;
+    background: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+.account-title {
+    flex: 1;
+}
+
+
+.account-title h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+
+.account-title p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+
+/* EDIT */
+
+.account-edit-button {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    background: #111827;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.account-edit-button:hover {
+    opacity: 0.9;
+}
+
+
+/* SECTION */
+
+.account-section {
+    padding: 28px 0;
+    border-bottom: 1px solid #e8ebf2;
+}
+
+
+.account-section h2 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    color: #111827;
+}
+
+
+/* GRID */
+
+.account-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+
+.account-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 16px;
+    background: #f8f9fc;
+    border-radius: 12px;
+}
+
+
+.account-field span {
+    font-size: 13px;
+    color: #737b8c;
+}
+
+
+.account-field strong {
+    font-size: 15px;
+    color: #111827;
+    word-break: break-word;
+}
+
+
+.account-field a {
+    color: #4f46e5;
+    font-size: 14px;
+    word-break: break-all;
+    text-decoration: none;
+}
+
+
+.account-field a:hover {
+    text-decoration: underline;
+}
+
+
+/* SKILLS */
+
+.account-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+
+.account-skill {
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.account-empty {
+    color: #8a91a1;
+}
+
+
+/* FOOTER */
+
+.account-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 28px;
+}
+
+
+.account-back-home {
+    border: 1px solid #dce1eb;
+    border-radius: 10px;
+    padding: 11px 20px;
+    background: white;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.account-loading {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6b7280;
+}
+
+
+.account-error {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+
+.account-error h2 {
+    color: #111827;
+}
+
+
+.account-error p {
+    color: #6b7280;
+}
+
+
+.account-error button {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    background: #111827;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .account-page {
+        padding: 20px 12px;
+    }
+
+    .account-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .account-header {
+        flex-wrap: wrap;
+    }
+
+    .account-title {
+        min-width: 200px;
+    }
+
+    .account-edit-button {
+        width: 100%;
+    }
+
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-footer {
+        flex-direction: column;
+    }
+
+    .account-back-home,
+    .account-footer .account-edit-button {
+        width: 100%;
+    }
+}

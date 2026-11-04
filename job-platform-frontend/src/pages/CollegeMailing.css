@@ -1,0 +1,137 @@
+.college-mail-page {
+  min-height: 100vh;
+  background: #f6f8fc;
+  color: #172033;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.college-mail-navbar {
+  height: 68px;
+  padding: 0 max(24px, calc((100vw - 1100px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #e5e9f2;
+}
+
+.college-mail-back,
+.college-mail-home,
+.college-mail-secondary-button {
+  border: 1px solid #dce2ed;
+  border-radius: 9px;
+  background: #fff;
+  color: #26334b;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.college-mail-back,
+.college-mail-home { padding: 10px 14px; }
+
+.college-mail-home {
+  background: #172033;
+  border-color: #172033;
+  color: #fff;
+}
+
+.college-mail-brand { display: flex; align-items: center; gap: 10px; font-weight: 750; }
+
+.college-mail-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #172033;
+  color: #fff;
+  font-size: 11px;
+}
+
+.college-mail-content { width: min(1000px, calc(100% - 36px)); margin: 0 auto; padding: 42px 0 72px; }
+
+.college-mail-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 26px; }
+.college-mail-eyebrow { color: #5e5ce6; font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.college-mail-heading h1 { margin: 8px 0 6px; font-size: clamp(27px, 4vw, 36px); letter-spacing: -.03em; }
+.college-mail-heading p, .college-mail-card-copy { color: #667085; line-height: 1.6; margin: 0; }
+
+.college-mail-count {
+  flex: 0 0 148px;
+  display: grid;
+  gap: 3px;
+  justify-items: center;
+  padding: 15px 12px;
+  border: 1px solid #e3e8f2;
+  border-radius: 14px;
+  background: #fff;
+}
+.college-mail-count strong { font-size: 24px; }
+.college-mail-count span { color: #667085; font-size: 11px; }
+
+.college-mail-card {
+  margin-top: 17px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #e1e6f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(22, 34, 56, .035);
+}
+
+.college-mail-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+.college-mail-card-heading > div { display: flex; align-items: center; gap: 11px; }
+.college-mail-card h2 { margin: 0; font-size: 17px; }
+.college-mail-step { color: #6b62e8; font-size: 12px; font-weight: 800; }
+.college-mail-status { border-radius: 999px; padding: 6px 10px; font-size: 11px; font-weight: 750; white-space: nowrap; }
+.college-mail-status.is-ready { background: #ecfdf3; color: #067647; }
+.college-mail-status.is-missing { background: #fff4e5; color: #9a5b00; }
+.college-mail-status.is-fixed { background: #f1f0ff; color: #574fe2; }
+
+.college-mail-card-copy { margin-bottom: 15px; }
+.college-mail-card-copy code { padding: 2px 5px; border-radius: 5px; background: #f3f5f9; color: #364152; }
+.college-mail-upload { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 15px 0 8px; }
+.college-mail-file-label { min-width: 220px; flex: 1; display: flex; align-items: center; min-height: 43px; padding: 0 12px; border: 1px dashed #c9d1e0; border-radius: 9px; color: #667085; cursor: pointer; overflow: hidden; }
+.college-mail-file-label input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.college-mail-file-label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.college-mail-secondary-button { padding: 11px 15px; }
+.college-mail-secondary-button:disabled { opacity: .5; cursor: not-allowed; }
+.college-mail-card > small, .college-mail-send-note { display: block; color: #7b8495; line-height: 1.55; font-size: 12px; }
+
+.college-mail-field-label { display: block; margin: 17px 0 7px; color: #667085; font-size: 12px; font-weight: 700; }
+.college-mail-subject { padding: 12px 14px; border: 1px solid #e1e6f0; border-radius: 9px; background: #fbfcfe; font-size: 14px; font-weight: 650; }
+.college-mail-body { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: 15px; border: 1px solid #e1e6f0; border-radius: 9px; background: #fbfcfe; color: #3f4b60; font: 13px/1.65 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+.college-mail-connect { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 14px; padding: 13px 15px; border-radius: 10px; background: #fff8eb; color: #7b4d00; }
+.college-mail-connect p { margin: 0; }
+.college-mail-contact-list { max-height: 220px; overflow: auto; border: 1px solid #e5e9f2; border-radius: 10px; }
+.college-mail-contact { display: flex; justify-content: space-between; gap: 20px; padding: 10px 13px; border-bottom: 1px solid #eef0f5; font-size: 13px; }
+.college-mail-contact:last-child { border-bottom: 0; }
+.college-mail-contact small { color: #7b8495; }
+.college-mail-empty { padding: 13px; border-radius: 9px; background: #f7f8fb; color: #7b8495; }
+.college-mail-send-button { width: 100%; margin: 17px 0 8px; padding: 14px 18px; border: 0; border-radius: 10px; background: linear-gradient(100deg, #6757e8, #477df2); color: #fff; font-weight: 750; cursor: pointer; box-shadow: 0 8px 18px rgba(92, 91, 230, .18); }
+.college-mail-send-button:hover:not(:disabled) { filter: brightness(1.04); }
+.college-mail-send-button:disabled { background: #c5c9d4; box-shadow: none; cursor: not-allowed; }
+.college-mail-send-note { text-align: center; }
+
+.college-mail-alert { margin: 12px 0; padding: 12px 15px; border: 1px solid; border-radius: 10px; font-size: 13px; line-height: 1.5; }
+.college-mail-alert-error { border-color: #fecdca; background: #fff5f4; color: #b42318; }
+.college-mail-alert-success { border-color: #abefc6; background: #effcf4; color: #067647; }
+.college-mail-failures p { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid #f0f1f5; font-size: 13px; }
+.college-mail-failures p span { color: #667085; text-align: right; }
+.college-mail-loading { width: min(1000px, calc(100% - 36px)); margin: 50px auto; color: #667085; }
+
+@media (max-width: 640px) {
+  .college-mail-navbar { padding: 0 12px; }
+  .college-mail-back, .college-mail-home { padding: 9px 10px; font-size: 12px; }
+  .college-mail-brand { font-size: 13px; }
+  .college-mail-brand-icon { width: 30px; height: 30px; }
+  .college-mail-heading { align-items: start; flex-direction: column; }
+  .college-mail-count { align-self: stretch; grid-template-columns: auto 1fr; justify-items: start; align-items: center; }
+  .college-mail-count span { font-size: 12px; }
+  .college-mail-card { padding: 17px; }
+  .college-mail-card-heading { align-items: flex-start; }
+  .college-mail-card-heading h2 { font-size: 15px; }
+  .college-mail-connect { align-items: flex-start; flex-direction: column; }
+  .college-mail-contact { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .college-mail-failures p { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .college-mail-failures p span { text-align: left; }
+}

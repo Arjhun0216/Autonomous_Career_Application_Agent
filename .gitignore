@@ -1,0 +1,43 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+/config/
+
+# Build output and IDE state
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# Frontend build and dependencies
+job-platform-frontend/node_modules/
+job-platform-frontend/dist/
+job-platform-frontend/.vite/
+
+# User uploads and generated personal documents; preserve locally, never commit
+/uploads/**
+!/uploads/.gitkeep
+/generated-resumes/**
+!/generated-resumes/.gitkeep
+/output/**
+!/output/.gitkeep
+*.log
+*.aux
+*.out

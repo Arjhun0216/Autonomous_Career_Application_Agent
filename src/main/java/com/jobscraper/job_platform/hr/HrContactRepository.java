@@ -10,4 +10,8 @@ public interface HrContactRepository
     List<HrContact> findByCompanyNameIgnoreCase(
             String companyName
     );
+
+    java.util.Optional<HrContact> findByMailIdIgnoreCaseAndCompanyNameIgnoreCase(
+            String mailId, String companyName
+    );
 }

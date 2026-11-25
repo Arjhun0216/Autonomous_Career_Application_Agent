@@ -58,6 +58,21 @@ public String sendApplicationEmail(
             String body,
             String resumePath) {
 
+        sendEmail(gmailOAuthService.getGmailService(user), user, to, subject, body, resumePath);
+    }
+
+    public Gmail getAuthorizedGmail(User user) {
+        return gmailOAuthService.getGmailService(user);
+    }
+
+    public void sendEmail(
+            Gmail gmail,
+            User user,
+            String to,
+            String subject,
+            String body,
+            String resumePath) {
+
         if (user == null) {
             throw new RuntimeException(
                     "User is required"
@@ -83,14 +98,6 @@ public String sendApplicationEmail(
         }
 
         try {
-
-            /*
-             * Get authenticated Gmail API service.
-             */
-            Gmail gmail =
-                    gmailOAuthService.getGmailService(
-                            user
-                    );
 
             /*
              * Create MIME email.

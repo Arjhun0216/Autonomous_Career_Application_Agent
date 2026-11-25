@@ -31,6 +31,12 @@ public class HrContact {
     @Column(name = "mail_id", nullable = false)
     private String mailId;
 
+    @Column(name = "hr_name", length = 255)
+    private String hrName;
+
+    @Column(name = "designation", length = 500)
+    private String designation;
+
     @Column(name = "company_name", nullable = false)
     private String companyName;
 }

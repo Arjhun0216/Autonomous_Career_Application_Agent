@@ -51,10 +51,10 @@ export default function CollegeMailing() {
     loadPage();
   }, [loadPage]);
 
-  const uploadBrochure = async (event) => {
+  const uploadResume = async (event) => {
     event.preventDefault();
     if (!file) {
-      setError("Choose the college brochure PDF first.");
+      setError("Choose your resume PDF first.");
       return;
     }
     setUploading(true);
@@ -63,12 +63,12 @@ export default function CollegeMailing() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      await axios.post(`${API}/college-mail/brochure`, formData, {
+      await axios.post(`${API}/college-mail/resume`, formData, {
         headers: { ...headers, "Content-Type": "multipart/form-data" },
       });
       setFile(null);
       event.target.reset();
-      setNotice("College brochure uploaded and ready to attach.");
+      setNotice("Resume uploaded and ready to attach.");
       await loadPage();
     } catch (uploadError) {
       setError(uploadError.response?.data?.message || "Brochure upload failed.");
@@ -91,7 +91,11 @@ export default function CollegeMailing() {
         setNotice(`Sent ${response.data.sentCount} of ${response.data.recipientCount} emails.`);
       }
     } catch (sendError) {
-      setError(sendError.response?.data?.message || "The email batch could not be sent.");
+      const message = sendError.response?.data?.message || "The email batch could not be sent.";
+      setError(message);
+      if (message.toLowerCase().includes("reconnect gmail")) {
+        setDraft((current) => current ? { ...current, gmailConnected: false } : current);
+      }
     } finally {
       setSending(false);
     }
@@ -118,7 +122,7 @@ export default function CollegeMailing() {
           <div>
             <span className="college-mail-eyebrow">CAREER DEVELOPMENT CELL</span>
             <h1>College Mailing</h1>
-            <p>Review the fixed college introduction, upload the official brochure, and send it to the HR contacts.</p>
+            <p>Review your personalized job inquiry, upload your resume, and send individual emails to the HR contacts.</p>
           </div>
           <div className="college-mail-count">
             <strong>{contacts.length}</strong>
@@ -131,17 +135,17 @@ export default function CollegeMailing() {
 
         <section className="college-mail-card">
           <div className="college-mail-card-heading">
-            <div><span className="college-mail-step">01</span><h2>College brochure</h2></div>
-            <span className={`college-mail-status ${draft?.brochureUploaded ? "is-ready" : "is-missing"}`}>
-              {draft?.brochureUploaded ? "Ready" : "Upload required"}
+            <div><span className="college-mail-step">01</span><h2>Your resume</h2></div>
+            <span className={`college-mail-status ${draft?.resumeUploaded ? "is-ready" : "is-missing"}`}>
+              {draft?.resumeUploaded ? "Ready" : "Upload required"}
             </span>
           </div>
           <p className="college-mail-card-copy">
-            Upload the approved college brochure PDF. The project stores it as <code>{draft?.brochureName || "college-brochure.pdf"}</code> and attaches it to each message.
+            Upload the resume PDF you want attached. The project stores it as <code>{draft?.resumeName || "Arjun_M_Resume.pdf"}</code> and attaches it to each email.
           </p>
-          <form className="college-mail-upload" onSubmit={uploadBrochure}>
+          <form className="college-mail-upload" onSubmit={uploadResume}>
             <label className="college-mail-file-label">
-              <span>{file?.name || "Choose a PDF brochure"}</span>
+              <span>{file?.name || "Choose your resume PDF"}</span>
               <input
                 type="file"
                 accept="application/pdf,.pdf"
@@ -149,16 +153,16 @@ export default function CollegeMailing() {
               />
             </label>
             <button className="college-mail-secondary-button" disabled={!file || uploading}>
-              {uploading ? "Uploading…" : draft?.brochureUploaded ? "Replace brochure" : "Upload brochure"}
+              {uploading ? "Uploading…" : draft?.resumeUploaded ? "Replace resume" : "Upload resume"}
             </button>
           </form>
-          <small>PDF only, up to 15 MB. This replaces the project brochure used for future messages.</small>
+          <small>PDF only, up to 15 MB. This replaces the resume attached to future emails.</small>
         </section>
 
         <section className="college-mail-card">
           <div className="college-mail-card-heading">
-            <div><span className="college-mail-step">02</span><h2>Fixed email draft</h2></div>
-            <span className="college-mail-status is-fixed">Stored in code</span>
+            <div><span className="college-mail-step">02</span><h2>Personalized email draft</h2></div>
+            <span className="college-mail-status is-fixed">Personalized for each HR contact</span>
           </div>
           <label className="college-mail-field-label" htmlFor="college-mail-subject">Subject</label>
           <div id="college-mail-subject" className="college-mail-subject">{draft?.subject}</div>
@@ -174,7 +178,7 @@ export default function CollegeMailing() {
             </span>
           </div>
           {draft?.gmailConnected ? (
-            <p className="college-mail-card-copy">Sending from <strong>{draft.gmailEmail}</strong>. Each HR contact receives an individual email.</p>
+            <p className="college-mail-card-copy">Sending from <strong>{draft.gmailEmail}</strong>. Each HR contact receives an individual email addressed by name and company.</p>
           ) : (
             <div className="college-mail-connect">
               <p>Connect the Gmail account that should send these messages.</p>
@@ -187,7 +191,7 @@ export default function CollegeMailing() {
             <div className="college-mail-contact-list">
               {contacts.map((contact) => (
                 <div className="college-mail-contact" key={contact.hrId || `${contact.mailId}-${contact.companyName}`}>
-                  <span>{contact.mailId}</span><small>{contact.companyName}</small>
+                  <span>{contact.hrName ? `${contact.hrName} · ` : ""}{contact.mailId}</span><small>{contact.companyName}</small>
                 </div>
               ))}
             </div>
@@ -197,11 +201,11 @@ export default function CollegeMailing() {
           <button
             className="college-mail-send-button"
             onClick={sendMail}
-            disabled={sending || !draft?.brochureUploaded || !draft?.gmailConnected || uniqueContactCount === 0}
+            disabled={sending || !draft?.resumeUploaded || !draft?.gmailConnected || uniqueContactCount === 0}
           >
-            {sending ? "Sending emails…" : `Send to all ${uniqueContactCount} unique email addresses`}
+            {sending ? "Sending emails…" : `Send to all ${uniqueContactCount} unique HR email addresses`}
           </button>
-          <small className="college-mail-send-note">One click sends one separate message per unique email address, with the brochure attached. Failed addresses are reported below.</small>
+          <small className="college-mail-send-note">Each unique address receives one separate personalized message with your resume attached. Failed addresses are reported below.</small>
         </section>
 
         {sendResult?.failures?.length > 0 && (

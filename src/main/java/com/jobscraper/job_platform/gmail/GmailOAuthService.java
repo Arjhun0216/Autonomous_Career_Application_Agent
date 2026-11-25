@@ -4,7 +4,9 @@ import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.ClientParametersAuthentication;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.auth.oauth2.TokenResponse;
+import com.google.api.client.auth.oauth2.TokenResponseException;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
@@ -436,10 +438,8 @@ public class GmailOAuthService {
                     credential.refreshToken();
 
             if (!refreshed) {
-
-                throw new RuntimeException(
-                        "Unable to refresh Gmail access token"
-                );
+                disconnectExpiredCredential(user);
+                throw reauthorizationRequired();
             }
 
             /*
@@ -455,9 +455,14 @@ public class GmailOAuthService {
             )
             .build();
 
-        } catch (
-                GeneralSecurityException |
-                IOException e) {
+        } catch (IOException e) {
+            if (isInvalidGrant(e)) {
+                disconnectExpiredCredential(user);
+                throw reauthorizationRequired();
+            }
+            throw new RuntimeException(
+                    "Failed to create Gmail service: " + e.getMessage(), e);
+        } catch (GeneralSecurityException e) {
 
             throw new RuntimeException(
                     "Failed to create Gmail service: "
@@ -465,5 +470,27 @@ public class GmailOAuthService {
                     e
             );
         }
+    }
+
+    private boolean isInvalidGrant(IOException exception) {
+        if (exception instanceof TokenResponseException tokenError
+                && tokenError.getDetails() != null
+                && "invalid_grant".equals(tokenError.getDetails().getError())) {
+            return true;
+        }
+        return exception instanceof GoogleJsonResponseException googleError
+                && googleError.getDetails() != null
+                && "invalid_grant".equals(String.valueOf(googleError.getDetails().get("error")));
+    }
+
+    private void disconnectExpiredCredential(User user) {
+        user.setGmailConnected(false);
+        user.setGmailRefreshToken(null);
+        userRepository.save(user);
+    }
+
+    private GmailReauthorizationRequiredException reauthorizationRequired() {
+        return new GmailReauthorizationRequiredException(
+                "The saved Gmail authorization has expired or was revoked. Reconnect Gmail from Pending Approvals, then return here and retry.");
     }
 }

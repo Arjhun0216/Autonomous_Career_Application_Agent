@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.io.DecodingException;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,10 +26,19 @@ public class JwtService {
 
         this.secretKey =
                 Keys.hmacShaKeyFor(
-                        Decoders.BASE64.decode(secret)
+                        decodeSecret(secret)
                 );
 
         this.expiration = expiration;
+    }
+
+    private static byte[] decodeSecret(String secret) {
+        try {
+            return Decoders.BASE64.decode(secret);
+        } catch (DecodingException standardBase64Failure) {
+            // Local configurations sometimes use Base64URL, which replaces + and / with - and _.
+            return Decoders.BASE64URL.decode(secret);
+        }
     }
 
     public String generateToken(String email) {

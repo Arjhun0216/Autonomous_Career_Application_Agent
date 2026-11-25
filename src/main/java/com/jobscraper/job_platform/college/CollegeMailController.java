@@ -30,10 +30,10 @@ public class CollegeMailController {
         }
     }
 
-    @PostMapping(value = "/brochure", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> uploadBrochure(@RequestParam("file") MultipartFile file) {
+    @PostMapping(value = "/resume", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> uploadResume(@RequestParam("file") MultipartFile file) {
         try {
-            return ResponseEntity.ok(collegeMailService.uploadBrochure(file));
+            return ResponseEntity.ok(collegeMailService.uploadResume(file));
         } catch (IllegalArgumentException e) {
             return error(HttpStatus.BAD_REQUEST, e.getMessage());
         } catch (RuntimeException e) {

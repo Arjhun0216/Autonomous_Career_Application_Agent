@@ -19,3 +19,8 @@ WHERE first_name IS NULL OR first_name = '';
 ALTER TABLE job_applications
     ADD COLUMN cover_letter_path VARCHAR(1000) NULL,
     ADD COLUMN cover_letter_body LONGTEXT NULL;
+
+-- HR contact metadata used to personalize the job inquiry campaign.
+ALTER TABLE hr_contacts
+    ADD COLUMN hr_name VARCHAR(255) NULL,
+    ADD COLUMN designation VARCHAR(500) NULL;
